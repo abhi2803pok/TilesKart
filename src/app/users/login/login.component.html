@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header bg-primary">Tiles</div>
+    <div class="card-body">
+      <form name="login" autocomplete="off" #login="ngForm">
+        <div class="form-group row">
+          <label for="Username" class="col-md-4 col-form-label text-md-right"
+            >Username</label
+          >
+          <div class="col-md-6">
+            <input
+              type="text" #uName = "ngModel"
+              class="form-control"
+              name="userName"
+              [(ngModel)]="userName"
+              required
+              pattern="^[1-9][0-9]{5}$"
+            />
+          </div>
+          <div  *ngIf="((!uName.valid) && uName.errors?.pattern )" class="alert alert-danger">
+            user name does not match with the pattern
+          </div>
+
+          <!-- <div  *ngIf="!uName.valid && uName.dirty"  class="alert alert-danger">
+            {{uName.valid}}
+            user name is required
+          </div> -->
+
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-md-4 col-form-label text-md-right"
+            >Password</label
+          >
+          <div class="col-md-6">
+            <input
+              type="password"
+              class="form-control"
+              name="password" #uPassword= "ngModel"
+              [(ngModel)]="password"
+              required
+            />
+          </div>
+          <div  *ngIf="!uPassword.valid && uPassword.dirty"  class="alert alert-danger">
+            {{uPassword.valid}}
+            user Password is required
+          </div>
+
+        </div>
+        <div class="col-md-6 offset-md-4">
+          <div>
+            <button class="btn btn-primary" (click)="validateLogin()"  [disabled]="!login.valid">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+x`
+    <div class="card-footer bg-primary"></div>
+  </div>
+</div>

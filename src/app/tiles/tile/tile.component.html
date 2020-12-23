@@ -1,0 +1,11 @@
+<td>
+  <img [src]="imagePath + tile.image" alt="" srcset="" width="42" height="42" />
+</td>
+<td><a [routerLink]="['/tiles/tiles',tile.Id]">{{tile.name}}</a></td>
+<td>{{ tile.model }}</td>
+<td>{{ tile.price | currency: "INR" }}</td>
+<td>{{ tile.status | status: "In Stock,Out of Stock" }}</td>
+<td>
+  <button (click)="updateRating()">Change Rating</button
+  ><UI-star [rating]="tile.rating" (ratingUpdated)="updateRatingValue($event)"></UI-star>
+</td>

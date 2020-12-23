@@ -1,0 +1,20 @@
+[
+  {
+    "ID": "001",
+    "Name": "bird1",
+    "Type": "Dove",
+    "ScientificName": "Streptopelia"
+  },
+  {
+    "ID": "002",
+    "Name": "BaldEagle",
+    "Type": "Hawk",
+    "ScientificName": "Haliaeetus leucocephalus"
+  },
+  {
+    "ID": "003",
+    "Name": "Cooper'sHawk",
+    "Type": "Hawk",
+    "ScientificName": "Accipiter cooperii"
+  }
+]
