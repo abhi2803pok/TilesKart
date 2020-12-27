@@ -1,0 +1,60 @@
+<div class="container">
+<form name="register" [formGroup]="registerForm" (ngSubmit)="register()">
+  <div class="form-group">
+    <label for="username">UserName</label>
+    <input type="text" class="form-control" formControlName="userName" required>
+  </div>
+
+  <div>
+    dirty : {{registerForm.get('userName').dirty}}
+  </div>
+  <div>
+    touched : {{registerForm.get('userName').touched}}
+  </div>
+
+  <div class="alert alert-danger" *ngIf="registerForm.get('userName').status === 'INVALID'">user name is required</div>
+  <div class="form-group">
+    <label for="email">email</label>
+    <input type="text" class="form-control" formControlName="email">
+  </div>
+<div class="form-group">
+  <label for="phonenumber">phone number</label>
+  <input type="text" class="form-control" formControlName="phoneNumber">
+</div>
+
+
+<div formGroupName="billingAdress">
+  <h3>Billing Address</h3>
+  <label>
+    Door Number
+    <input type="text" formControlName="doorNumber">
+  </label>
+   <label>
+    City:
+    <input type="text" formControlName="city">
+  </label>
+
+   <label>
+    Pin Code:
+    <input type="text" formControlName="zip">
+    <div class="alert alert-danger" *ngIf="registerForm.get('billingAdress').get('zip').status=='INVALID' &&
+    registerForm.get('billingAdress').get('zip').hasError('required')">
+      zip code is required field
+</div>
+
+<div class="alert alert-danger" *ngIf="registerForm.get('billingAdress').get('zip').status=='INVALID' &&
+registerForm.get('billingAdress').get('zip').hasError('pattern')">
+      zip code should match with the pattern
+</div>
+
+  </label>
+</div>
+
+<div class="form-group">
+  <button (click)="register()">Register</button>
+</div>
+<div>{{registerForm.value | json}}</div>
+</form>
+<button
+(click)="navigateBack()"
+>Back</button>

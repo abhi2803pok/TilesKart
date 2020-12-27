@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header bg-primary">
+      Tiles
+      <select [(ngModel)]="selectedFilterOption">
+        <option *ngFor="let filter of filterOptions" value="{{ filter }}">
+          {{ filter }}
+        </option>
+      </select>
+
+      selected Filter : {{ selectedFilterOption }}
+      <input
+        type="text"
+        name="filterText"
+        id="filterText"
+        [(ngModel)]="filterText"
+      />
+      Filter Text : {{ filterText }}
+      <button class="btn btn-dark" (click)="filter()">Search</button>
+      <span style="float: right"
+        >browser Language {{ tileService.getCuurentLocale() }}</span
+      >
+    </div>
+    {{ errorMessage }}
+    <div class="card-body o">
+      <table class="table" *ngIf="tiles && tiles.length > 1">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>name</th>
+            <th>model</th>
+            <th>price</th>
+            <th>Stock</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let tile of fTiles" UI-tile [tile]="tile"></tr>
+        
+      </table>
+    </div>
+    <div class="card-footer bg-primary"></div>
+  </div>
+</div>
