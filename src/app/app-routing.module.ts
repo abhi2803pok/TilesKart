@@ -1,4 +1,5 @@
-import { TilesComponent } from './../../../../Training_Pracf/tilesKart/src/app/tiles/tiles.component';
+import { TileComponent } from './tiles/tile/tile.component';
+
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
